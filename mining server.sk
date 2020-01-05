@@ -1,0 +1,84 @@
+on break of coal ore:
+	cancel event
+	set event-block to air
+	give player 2 sunflower named "&6Coin"
+
+on break of sponge:
+	cancel event
+	set event-block to air
+	give player 10 sunflower named "&6Coin"
+	
+on break of stone:
+	cancel event
+	set event-block to air
+	give player 1 sunflower named "&6Coin"
+	
+on break of iron ore:
+	cancel event
+	set event-block to air
+	give player 4 sunflower named "&6Coin"
+	
+on break of diamond ore:
+	cancel event
+	set event-block to air
+	give player 5 sunflower named "&6Coin"
+
+on break of emerald ore:
+	cancel event
+	set event-block to air
+	give player 8 sunflower named "&6Coin"
+	
+on break of lapis lazuli ore:
+	cancel event
+	set event-block to air
+	give player 6 sunflower named "&6Coin"
+	
+on right click with paper:
+	name of player's tool is "&a$10 Note"
+	add 10 to {balance::%player%}
+	wait 1 tick
+	remove 1 of player's tool from player's tool
+	
+command /coins:
+	trigger:
+		send "&aYou have &a&b{balance::%player%} &acoins" to player
+	
+command /prestige:
+	trigger:
+		{balance::%player%}>=2500
+		broadcast ""
+		broadcast "&3Tamper >> &b%player% has prestiged!"
+		broadcast ""
+		set {balance::%player%} to 0
+		add 1 to {prestige::%player%}
+			stop
+		{gold::%player%}<=2500
+		message "&3Tamper >> &bYou need 2500 coins to prestige!" to player
+		clear players inventory
+		give player 1 sunflower named "&6Coin"
+		{balance::%player%}>=5000
+		broadcast ""
+		broadcast "&3Tamper >> &b%player% has prestiged! &7[&b{prestige::%player%}&7]"
+		broadcast ""
+		set {balance::%player%} to 0
+		add 1 to {prestige::%player%}
+			stop
+		{gold::%player%}<=5000
+		message "&3Tamper >> &bYou need 5000 coins to prestige!" to player
+		clear players inventory
+		give player 1 sunflower named "&6Coin"
+		{balance::%player%}>=10000
+		broadcast ""
+		broadcast "&3Tamper >> &b%player% has prestiged! &7[&b{prestige::%player%}&7]"
+		broadcast ""
+		set {balance::%player%} to 0
+		add 1 to {prestige::%player%}
+			stop
+		{balance::%player%}<=10000
+		message "&3Tamper >> &bYou need 10000 coins to prestige!" to player
+		clear players inventory
+		give player 1 sunflower named "&6Coin"
+		
+		
+			
+		
